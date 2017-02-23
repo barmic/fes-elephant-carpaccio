@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class Commande {
     private Map<String, Double> taxes = new HashMap<>();
+//    private Map<Integer, Integer> articles = new HashMap<>();
     private int prixCommand;
     private String etat;
 
@@ -18,6 +19,7 @@ public class Commande {
 
     public void saisiePrix(int nbArticles, int prixUnitaire) {
         this.prixCommand += nbArticles * prixUnitaire;
+        System.out.println("Articles " + nbArticles + " => " + prixUnitaire + '$');
     }
 
     public int valeur() {

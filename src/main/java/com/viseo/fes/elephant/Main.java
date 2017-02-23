@@ -7,10 +7,10 @@ public class Main {
         int nbArticles = 5;
 
         cmd.saisiePrix(nbArticles, prix);
+        cmd.saisiePrix(4, 7);
         cmd.saisieEtat("AL");
-//        cmd.saisiePrix(4, 7);
 
-        System.out.println("Montant commande " + cmd.valeur());
+        System.out.println("Montant commande brut " + cmd.valeur());
         System.out.println("Montant reduit " + cmd.prixReduit());
         System.out.println("Montant avec taxe " + cmd.taxe());
         System.out.println("État de la commande " + cmd.etat());
