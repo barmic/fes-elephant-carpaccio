@@ -10,4 +10,8 @@ public class Commande {
     public int valeur() {
         return prixCommand;
     }
+
+    public int reduction() {
+        return prixCommand > 1_000 ? 3 : 0;
+    }
 }
