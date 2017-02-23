@@ -1,8 +1,20 @@
 package com.viseo.fes.elephant;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Commande {
+    private Map<String, Double> taxes = new HashMap<>();
     private int prixCommand;
     private String etat;
+
+    public Commande() {
+        taxes.put("UT", 6.85);
+        taxes.put("NV", 8d);
+        taxes.put("TX", 6.25);
+        taxes.put("AL", 4d);
+        taxes.put("CA", 8.25);
+    }
 
     public void saisiePrix(int nbArticles, int prixUnitaire) {
         this.prixCommand += nbArticles * prixUnitaire;
@@ -32,8 +44,7 @@ public class Commande {
     }
 
     public double taxe() {
-        double taxe = 6.85;
-        return prixReduit() + (prixReduit() * taxe / 100d);
+        return prixReduit() + (prixReduit() * taxes.getOrDefault(etat, 0d) / 100d);
     }
 
     public void saisieEtat(String etat) {

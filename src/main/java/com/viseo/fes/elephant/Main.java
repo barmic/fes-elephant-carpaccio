@@ -7,8 +7,7 @@ public class Main {
         int nbArticles = 5;
 
         cmd.saisiePrix(nbArticles, prix);
-        String etat = "UT";
-        cmd.saisieEtat(etat);
+        cmd.saisieEtat("AL");
 //        cmd.saisiePrix(4, 7);
 
         System.out.println("Montant commande " + cmd.valeur());
