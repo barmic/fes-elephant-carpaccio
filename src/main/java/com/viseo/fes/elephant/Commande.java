@@ -14,4 +14,8 @@ public class Commande {
     public int reduction() {
         return prixCommand > 1_000 ? 3 : 0;
     }
+
+    public double prixReduit() {
+        return prixCommand - (prixCommand * reduction() / 100d);
+    }
 }
