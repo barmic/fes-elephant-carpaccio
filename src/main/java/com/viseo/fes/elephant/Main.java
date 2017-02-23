@@ -7,6 +7,7 @@ public class Main {
         int nbArticles = 4;
 
         cmd.saisiePrix(nbArticles, prix);
+        cmd.saisiePrix(4, 7);
 
         System.out.println("Montant commande " + cmd.valeur());
     }
