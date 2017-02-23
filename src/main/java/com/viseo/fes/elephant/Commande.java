@@ -1,13 +1,13 @@
 package com.viseo.fes.elephant;
 
 public class Commande {
-    private int prix;
+    private int prixCommand;
 
-    public void saisieArticle(int prix) {
-        this.prix = prix;
+    public void saisiePrix(int nbArticles, int prixUnitaire) {
+        this.prixCommand = nbArticles * prixUnitaire;
     }
 
     public int valeur() {
-        return prix;
+        return prixCommand;
     }
 }
