@@ -2,6 +2,7 @@ package com.viseo.fes.elephant;
 
 public class Commande {
     private int prixCommand;
+    private String etat;
 
     public void saisiePrix(int nbArticles, int prixUnitaire) {
         this.prixCommand += nbArticles * prixUnitaire;
@@ -33,5 +34,13 @@ public class Commande {
     public double taxe() {
         double taxe = 6.85;
         return prixReduit() + (prixReduit() * taxe / 100d);
+    }
+
+    public void saisieEtat(String etat) {
+        this.etat = etat;
+    }
+
+    public String etat() {
+        return etat;
     }
 }
