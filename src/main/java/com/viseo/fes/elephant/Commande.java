@@ -29,4 +29,9 @@ public class Commande {
     public double prixReduit() {
         return prixCommand - (prixCommand * reduction() / 100d);
     }
+
+    public double taxe() {
+        double taxe = 6.85;
+        return prixReduit() + (prixReduit() * taxe / 100d);
+    }
 }

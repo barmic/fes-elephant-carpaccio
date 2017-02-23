@@ -11,5 +11,6 @@ public class Main {
 
         System.out.println("Montant commande " + cmd.valeur());
         System.out.println("Montant reduit " + cmd.prixReduit());
+        System.out.println("Montant avec taxe " + cmd.taxe());
     }
 }
