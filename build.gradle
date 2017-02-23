@@ -1,0 +1,69 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+version = '1.0.3-SNAPSHOT'
+
+mainClassName = "com.viseo.fes.elephant.Main"
+
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+jar {
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+applicationDistribution.from("${rootProject.projectDir}/") {
+    include "README.md", "LICENSE.md"
+}
+
+test {
+    testLogging.showStandardStreams = true
+
+    beforeTest { descriptor -> logger.lifecycle("Running test: " + descriptor) }
+
+    onOutput { descriptor, event ->
+        logger.lifecycle("Test: " + descriptor + " produced standard out/err: " + event.message)
+    }
+}
+
+dependencies {
+    def poiVersion = '3.15'
+    def retrofitVersion = '2.1.0'
+    def log4jVersion = '2.7'
+    compile(
+            [group: 'org.apache.poi', name: 'poi', version: poiVersion],
+            [group: 'org.apache.poi', name: 'poi-ooxml', version: poiVersion],
+
+            [group: 'com.squareup.retrofit2', name: 'retrofit', version: retrofitVersion],
+            [group: 'com.squareup.retrofit2', name: 'retrofit-converters', version: retrofitVersion],
+            [group: 'com.squareup.retrofit2', name: 'converter-gson', version: retrofitVersion],
+            [group: 'com.squareup.retrofit2', name: 'adapter-rxjava', version: retrofitVersion],
+
+            [group: 'org.apache.commons', name: 'commons-csv', version: '1.3'],
+
+            [group: 'org.mongodb', name: 'mongo-java-driver', version: '3.4.0'],
+
+            [group: 'io.javaslang', name: 'javaslang', version: '2.0.5'],
+
+            [group: 'io.reactivex', name: 'rxjava', version: '1.2.3'],
+            
+            [group: 'org.apache.commons', name: 'commons-csv', version: '1.4'],
+
+            [group: 'org.apache.logging.log4j', name: 'log4j-api', version: log4jVersion],
+            [group: 'org.apache.logging.log4j', name: 'log4j-core', version: log4jVersion]
+    )
+
+    testCompile(
+            [group: 'org.assertj', name: 'assertj-core', version: '3.3.0'],
+            [group: 'junit', name: 'junit', version: '4.12'],
+            [group: 'org.mockito', name: 'mockito-core', version: '1.+'],
+    )
+}
